@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge,chrome=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <title>周考一</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="header">
+        <span>北京市 <i class="fa fa-angle-right"></i></span>
+        <span><img src="" alt=""></span>
+        <span>
+            <time>
+                <i></i>
+                <b>搜索</b>
+            </time>
+            <time>
+                <i></i>
+                <b>客服</b>
+            </time>
+        </span>
+    </div>
+    <div class="content">
+        <div class="navigator">
+
+        </div>
+        <div class="navigator">
+
+        </div>
+        <div class="navigator">
+                
+        </div>
+    </div>
+    <div class="footer">
+        <ul>
+            <li>
+                <i class="fa fa-chain"></i>
+                <span>首页</span>
+            </li>
+            <li>
+                <i class="fa fa-chain"></i>
+                <span>首页</span>
+            </li>
+            <li>
+                <i class="fa fa-chain"></i>
+                <span>首页</span>
+            </li>
+            <li>
+                <i class="fa fa-chain"></i>
+                <span>首页</span>
+            </li>
+        </ul>
+    </div>
+    <script src="./jquery.js"></script>
+    <script>
+        $.ajax({
+            url: 'http://localhost:8080/index',
+            success: function(data){
+                var data=JSON.parse(data);
+                var str='';
+                data.navigator.forEach(function(file){
+                    str=`<dl>
+                            <dt>
+                                <i class="${file.icon}"></i>    
+                            </dt>
+                            <dd>
+                                <p>${file.tit}</p>
+                                <span>${file.thing}</span>    
+                            </dd>
+                        </dl>`;
+                        $('.navigator').append(str);
+                });
+            }
+        });
+    </script>   
+</body>
+</html>
